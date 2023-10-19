@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/dashboard_empleados.css">
+    <title>Dashboard de Empleado</title>
+</head>
+<body>
+    <nav class="vertical-nav">
+        <ul>
+            <li></li>
+            <li><button id="request-vacation">Vacaciones</button></li>
+            <li><button id="notifications">Notificaciones</button></li>
+            <li><button id="logout" class="logout-button" onclick="logoutWithAlert()"><i class='bx bx-log-out icon'></i> Salir</button></li>
+        </ul>
+    </nav>
+
+    <main class="main">
+        <h2>Bienvenido de nuevo, estimado {Usuario}</h2>
+        <div class="tasks">
+            <h2>Mis Tareas</h2>
+            <div class="task-container">
+                <div class="task">
+                    <p>Terminar el informe de ventas para la proxima semana</p>
+                    <button class="complete-button">Completar</button>
+                </div>
+                <div class="task">
+                    <p>Revisar y responder correos electrónicos</p>
+                    <button class="complete-button">Completar</button>
+                </div>
+                <div class="task">
+                    <p>Preparar la presentación para la reunión de equipo</p>
+                    <button class="complete-button">Completar</button>
+                </div>
+
+                <div class="completed-tasks-container">
+                    <h3>Tareas Completadas</h3>
+                    <div id="completed-tasks" class="task_finish_container">
+
+                    </div>
+                </div>
+                
+
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <button id="prev-month">Anterior</button>
+                        <h2 id="current-month"></h2>
+                        <button id="next-month">Siguiente</button>
+                    </div>
+                    <div class="calendar"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="progress">
+            <h2>Progreso</h2>
+            <div class="progress-container">
+                <div class="monthly-progress">
+                    <h3>Mensual</h3>
+                    <div class="progress-bar">
+                        <div class="progress-indicator"></div>
+                    </div>
+                </div>
+                <div class="annual-progress">
+                    <h3>Anual</h3>
+                    <div class="progress-circle">
+                        <div class="progress-indicator"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/dash_empelado.js"></script>
+        
+    <script src="js/general.js">  </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    
+</body>
+</html>

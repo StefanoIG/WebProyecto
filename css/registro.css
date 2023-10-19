@@ -1,0 +1,15 @@
+.contenedor_principal{
+    background-color: red;
+    width: 50%;
+    height: 50%;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contenedor{
+    background-color: black;
+    width: 25%;
+    height: 25%;
+    border: 1px solid;
+}

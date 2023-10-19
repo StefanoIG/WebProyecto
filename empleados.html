@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!----======== CSS ======== -->
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/custom_styles.css">
+        <!----===== Boxicons CSS ===== -->
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+        <!----===== SweetAlert ===== -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.min.css">
+
+    <title>Empleados</title>
+</head>
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <a href="dashboard.html">
+                  <img src="/img/Logo.png" alt="Logo">
+                </a>
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name">Administracion</span>
+                    <span class="profession">Recursos Humanos</span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="Busqueda global">
+                </li>
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="dashboard.html">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text">Resumen</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="productividad.html">
+                            <i class='bx bx-briefcase icon'></i>
+                            <span class="text nav-text">Rendimiento</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="empleados.html">
+                            <i class='bx bx-upload icon' ></i>
+                            <span class="text nav-text">Empleados</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#" id="open-modal">
+                            <i class='bx bx-bell icon'></i>
+                            <span class="text nav-text">Notificaciones</span>
+                        </a>
+                    </li>
+                
+                    <!-- Ventana modal -->
+                    <div class="hide modal" id="myModal">
+                        <div class="modal-content">
+                            <span class="close" id="close-modal">&times;</span>
+                            <h2>Tienes {notificaciones}</h2>
+                            <p>Contenido notificacion.</p>
+                        </div>
+                    </div>
+                
+                    <li class="nav-link">
+                        <a href="area_social.html">
+                            <i class='bx bx-heart icon' ></i>
+                            <span class="text nav-text">Area Social</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="#" onclick="logoutWithAlert();">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Salir</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Modo oscuro</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+                
+            </div>
+            
+        </div>
+
+    </nav>
+
+    <section class="home">
+        <div class="text">Empleados
+            <span id="employee_area">General</span>
+        </div>
+        
+        <div class="search-filter">
+        <div class="search-options">
+            <select id="filtro_area" class="filtro_area">
+                <option value="area" id="area" selected>Área</option>
+                <option value="Contabilidad" id="Contabilidad">Contabilidad</option>
+                <option value="TI" id="TI">TI</option>
+                <option value="Finanzas" id="Finanzas">Finanzas</option>
+                <option value="Mantenimiento" id="Mantenimiento">Mantenimiento</option>
+                <option value="Jefe_area">Jefes de áreas</option>
+            </select>
+            <button id="sort-button">Ordenar A-Z</button>
+        </div>
+        <input type="text" id="search-input" placeholder="Buscar empleado">
+        <button id="search-button" >Buscar</button>
+        <button id="add-employee" >Agregar empleado</button>
+        
+
+        
+
+        
+    </div>
+    
+    
+        <div class="employee-cards">
+            <div class="employee-card" onclick="redirectToEmployeeInfo()" >
+                <img src="/img/.png" alt="Empleado 1">
+                <h3>Nombre del Empleado 1</h3>
+                <p>Cargo: Cargo del Empleado 1</p>
+            </div>
+    
+            <div class="employee-card" onclick="redirectToEmployeeInfo()">
+                <img src="imagen_empleado_2.jpg" alt="Empleado 2">
+                <h3>Nombre del Empleado 2</h3>
+                <p>Cargo: Cargo del Empleado 2</p>
+            </div>
+
+
+            <div class="employee-card" onclick="redirectToEmployeeInfo()">
+                <img src="imagen_empleado_2.jpg" alt="Empleado 3">
+                <h3>Nombre del Empleado 3</h3>
+                <p>Cargo: Cargo del Empleado 3</p>
+            </div>
+
+            <div class="employee-card" onclick="redirectToEmployeeInfo()">
+                <img src="imagen_empleado_2.jpg" alt="Empleado 4">
+                <h3>Nombre del Empleado 4</h3>
+                <p>Cargo: Cargo del Empleado 4</p>
+            </div>
+
+            <div class="employee-card" onclick="redirectToEmployeeInfo()">
+                <img src="imagen_empleado_2.jpg" alt="Empleado 5">
+                <h3>Nombre del Empleado 5</h3>
+                <p>Cargo: Cargo del Empleado 5</p>
+            </div>
+
+            <div class="employee-card" onclick="redirectToEmployeeInfo()">
+                <img src="imagen_empleado_2.jpg" alt="Empleado 6">
+                <h3>Nombre del Empleado 6</h3>
+                <p>Cargo: Cargo del Empleado 6</p>
+            </div>
+    
+        </div>
+    
+        <div class="pagination">
+            <ul>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+               
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+    <!----===== Scripts propios ===== -->
+    <script src="js/empleados.js"></script>
+    <script src="js/general.js">  </script>
+    
+        <!----===== SweetAlertJs ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</body>
+
+</html>

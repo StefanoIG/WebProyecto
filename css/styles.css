@@ -1,0 +1,936 @@
+/* Google Font Import - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    /* ===== Colors ===== */
+    --body-color: #E4E9F7;
+    --sidebar-color: #FFF;
+    --primary-color: #695CFE;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --text-color: #707070;
+
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+body{
+    min-height: 100vh;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+}
+
+::selection{
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+body.dark{
+    --body-color: #18191a;
+    --sidebar-color: #242526;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c;
+    --toggle-color: #fff;
+    --text-color: #ccc;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px;
+    background: var(--sidebar-color);
+    transition: var(--tran-05);
+    z-index: 100;
+}
+.sidebar.close{
+    width: 88px;
+}
+
+/* ===== Reusable code - Here ===== */
+.sidebar li{
+    height: 50px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.sidebar header .image,
+.sidebar .icon{
+    min-width: 60px;
+    border-radius: 6px;
+}
+
+.sidebar .icon{
+    min-width: 60px;
+    border-radius: 6px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.sidebar .text,
+.sidebar .icon{
+    color: var(--text-color);
+    transition: var(--tran-03);
+}
+
+.sidebar .text{
+    font-size: 17px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 1;
+}
+.sidebar.close .text{
+    opacity: 0;
+}
+/* =========================== */
+
+.sidebar header{
+    position: relative;
+}
+
+.sidebar header .image-text{
+    display: flex;
+    align-items: center;
+}
+.sidebar header .logo-text{
+    display: flex;
+    flex-direction: column;
+}
+header .image-text .name {
+    margin-top: 2px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+header .image-text .profession{
+    font-size: 16px;
+    margin-top: -2px;
+    display: block;
+}
+
+.sidebar header .image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar header .image img{
+    width: 40px;
+    border-radius: 6px;
+}
+
+.sidebar header .toggle{
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%) rotate(180deg);
+    height: 25px;
+    width: 25px;
+    background-color: var(--primary-color);
+    color: var(--sidebar-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    transition: var(--tran-05);
+}
+
+body.dark .sidebar header .toggle{
+    color: var(--text-color);
+}
+
+.sidebar.close .toggle{
+    transform: translateY(-50%) rotate(0deg);
+}
+
+.sidebar .menu{
+    margin-top: 40px;
+}
+
+.sidebar li.search-box{
+    border-radius: 6px;
+    background-color: var(--primary-color-light);
+    cursor: pointer;
+    transition: var(--tran-05);
+}
+
+.sidebar li.search-box input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: var(--primary-color-light);
+    color: var(--text-color);
+    border-radius: 6px;
+    font-size: 17px;
+    font-weight: 500;
+    transition: var(--tran-05);
+}
+.sidebar li a{
+    list-style: none;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: var(--tran-03);
+}
+
+.sidebar li a:hover{
+    background-color: var(--primary-color);
+}
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text{
+    color: var(--sidebar-color);
+}
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text{
+    color: var(--text-color);
+}
+
+.sidebar .menu-bar{
+    height: calc(100% - 55px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: scroll;
+}
+.menu-bar::-webkit-scrollbar{
+    display: none;
+}
+.sidebar .menu-bar .mode{
+    border-radius: 6px;
+    background-color: var(--primary-color-light);
+    position: relative;
+    transition: var(--tran-05);
+}
+
+.menu-bar .mode .sun-moon{
+    height: 50px;
+    width: 60px;
+}
+
+.mode .sun-moon i{
+    position: absolute;
+}
+.mode .sun-moon i.sun{
+    opacity: 0;
+}
+body.dark .mode .sun-moon i.sun{
+    opacity: 1;
+}
+body.dark .mode .sun-moon i.moon{
+    opacity: 0;
+}
+
+.menu-bar .bottom-content .toggle-switch{
+    position: absolute;
+    right: 0;
+    height: 100%;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.toggle-switch .switch{
+    position: relative;
+    height: 22px;
+    width: 40px;
+    border-radius: 25px;
+    background-color: var(--toggle-color);
+    transition: var(--tran-05);
+}
+
+.switch::before{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background-color: var(--sidebar-color);
+    transition: var(--tran-04);
+}
+
+body.dark .switch::before{
+    left: 20px;
+}
+
+.home{
+    position: absolute;
+    top: 0;
+    top: 0;
+    left: 250px;
+    height: 100vh;
+    width: calc(100% - 250px);
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+}
+.home .text{
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 12px 60px;
+}
+
+.sidebar.close ~ .home{
+    left: 78px;
+    height: 100vh;
+    width: calc(100% - 78px);
+}
+body.dark .home .text{
+    color: var(--text-color);
+}
+
+
+/* Sección del Main y clase widget*/
+.main {
+    margin-left: 1px; /* Ajusta el margen para dejar espacio para el sidebar abierto */
+    padding: 4px;
+    display: flex;
+    transition: margin-left var(--tran-05); /* Agrega una transición de margen para suavizar el cambio */
+}
+
+.widget {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 15px; /* Aumentar el espacio interno del widget */
+    width: 25%; /* Establecer un ancho fijo para todos los widgets */
+    display: inline-block; /* Hacer que los widgets se alineen en línea */
+    vertical-align: top; /* Alinear los widgets en la parte superior */
+    margin: 10px; /* Aumentar el margen entre los widgets */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.widget h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-top: 0; /* Eliminar el margen superior para alinear con la parte superior */
+}
+
+.widget img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    width: 100%; /* Hacer que todas las imágenes tengan el mismo ancho */
+    margin: 10px 0; /* Establecer el margen vertical para las imágenes */
+}
+
+.widget p {
+    font-size: 14px;
+    color: #333333;
+    margin-top: 0; /* Eliminar el margen superior para alinear con la parte superior */
+}
+
+
+/* Estilos para el modo oscuro de los widgets */
+body.dark .widget {
+    background-color: #333333; /* Cambiar el color de fondo en modo oscuro */
+    border: 1px solid #555555; /* Cambiar el borde en modo oscuro */
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Cambiar la sombra en modo oscuro */
+}
+
+body.dark .widget h2 {
+    color: #ffffff; /* Cambiar el color del título en modo oscuro */
+}
+
+body.dark .widget p {
+    color: #f5f5f5; /* Cambiar el color del texto en modo oscuro */
+}
+
+/* Fin de la sección del Main y Widget */
+
+/* Estilo para la barra de progreso circular */
+.progress-circle {
+    text-align: center;
+    margin: 0 auto; /* Centrar horizontalmente el contenido */
+}
+
+.progress {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: #e5e5e5;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 auto; /* Centrar horizontalmente el círculo de progreso */
+}
+
+.progress-bar {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #695CFE; /* Color de la barra de progreso */
+    transition: width 1s ease-in-out;
+    animation: progress-fill 2s forwards;
+}
+
+.progress-text {
+    font-size: 24px;
+    line-height: 100px;
+}
+
+.widget-description {
+    font-size: 14px;
+    color: #333333;
+    text-align: center; /* Alinear el párrafo al centro */
+}
+
+@keyframes progress-fill {
+    from {
+        width: 0;
+    }
+}
+
+
+/* Estilo para las tarjetas de empleados */
+
+.employee-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.employee-card img {
+    width: 25%;
+    max-height: 75px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.employee-card h3 {
+    font-size: 18px;
+    margin-top: 1/* Estilo para la barra de búsqueda */
+}
+    /* Estilo para la barra de búsqueda y opciones */
+.search-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.search-filter .search-options{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+#filter-dropdown{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#sort-button,
+#search-button,
+#add-employee {
+    padding: 10px 20px;
+    background-color: #479af3;
+    color: #fff;
+    margin: 4px 6px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#search-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+    /* Estilo para las tarjetas de empleados */
+    .employee-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 20px;
+    }
+    
+    .employee-card {
+        width: calc(33.33% - 20px);
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .employee-card img {
+        width: 100%;
+        max-height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+    
+    .employee-card h3 {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    
+    .employee-card p {
+        font-size: 14px;
+        color: #555;
+    }
+    
+    /* Estilo para la paginación */
+    .pagination {
+        text-align: center;
+        margin: 20px;
+    }
+    
+    .pagination ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .pagination ul li {
+        display: inline;
+        margin: 0 5px;
+    }
+    
+    .pagination ul li a {
+        text-decoration: none;
+        color: #007BFF;
+        border: 1px solid #007BFF;
+        border-radius: 5px;
+        padding: 5px 10px;
+    }
+    
+    .pagination ul li a:hover {
+        background-color: #007BFF;
+        color: #fff;
+    }
+
+
+    /* Estilo para las tarjetas de empleados en modo oscuro */
+body.dark .employee-card {
+    background-color: #333; /* Cambia el color de fondo en modo oscuro */
+    border-color: #555; /* Cambia el color del borde en modo oscuro */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* Cambia la sombra en modo oscuro */
+}
+
+body.dark .employee-card h3 {
+    color: #fff; /* Cambia el color del texto en modo oscuro */
+}
+
+body.dark .employee-card p {
+    color: #999; /* Cambia el color del texto en modo oscuro */
+}
+
+
+
+body.dark #search-input {
+    background-color: #444; /* Cambia el color del campo de búsqueda en modo oscuro */
+    border-color: #555; /* Cambia el color del borde en modo oscuro */
+    color: #fff; /* Cambia el color del texto en modo oscuro */
+}
+
+body.dark #sort-button,
+body.dark #search-button,
+body.dark #add-employee {
+    background-color: #00a000; /* Cambia el color de fondo de los botones en modo oscuro */
+    color: #fff; /* Cambia el color del texto de los botones en modo oscuro */
+}
+
+
+
+/* Estilo para la paginación en modo oscuro */
+body.dark .pagination ul li a {
+    background-color: #007BFF; /* Cambia el color de fondo de los enlaces en modo oscuro */
+    color: #fff; /* Cambia el color del texto en modo oscuro */
+}
+
+body.dark .pagination ul li a:hover {
+    background-color: #0056b3; /* Cambia el color de fondo de los enlaces en modo oscuro al pasar el mouse */
+}
+
+
+
+   /* Estilo para la ventana modal */
+
+   .hide,
+   .hide_form{
+    display: absolute;
+    transform: translateY(-300%);
+   }
+
+.modal,
+.modal_form {
+    display: none; /* Oculta la ventana modal por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Otras reglas de estilo para el modal (si las tienes) */
+.modal-content,
+.modal-content_form{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.close,
+.close_form{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.search-filter .search-options .filtro_area{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+/*Seccion de informacion de empleado*/
+.employee-info {
+    background-color: #fff;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+
+.employee-header {
+    display: flex;
+    align-items: center;
+}
+
+.employee-avatar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.employee-details h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.employee-details p {
+    margin: 0;
+    color: #777;
+    font-size: 16px;
+}
+
+.employee-details-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.employee-tasks h3 {
+    font-size: 20px;
+}
+
+.task-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Distribuir en filas de tres elementos */
+}
+
+.employee-tasks ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Añadido estilo para que las tarjetas estén distribuidas de manera uniforme */
+}
+
+.employee-tasks li {
+    width: calc(50% ); /* Cambiado el ancho a 50% y ajustado el espacio entre las tarjetas a 10px */
+    margin: 10px 0; /* Eliminado el margen vertical para que las tarjetas no se separen verticalmente */
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    position: relative;
+}
+.task-progress {
+    width: 100%;
+    height: 10px;
+    background-color: #0073e6; /* Color de la barra de progreso */
+    margin-top: 10px; /* Espacio entre la tarea y la barra de progreso */
+}
+
+
+.assign-objective-btn, .edit-objective-btn, .delete-objective-btn{
+    background-color: #0073e6;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.employee-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.back-to-employees-btn, .edit-info-btn {
+    background-color: #0073e6;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-info-btn {
+    background-color: #00a000;
+    margin-left: 10px;
+}
+
+/* Sección de información de empleado en modo oscuro */
+body.dark .employee-info {
+    background-color: #333; /* Cambia el fondo en modo oscuro */
+    border: 1px solid #555; /* Cambia el color del borde en modo oscuro */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Cambia la sombra en modo oscuro */
+    color: #fff; /* Cambia el color del texto en modo oscuro */
+}
+
+body.dark .employee-details p {
+    color: #999; /* Cambia el color del texto secundario en modo oscuro */
+}
+
+body.dark .employee-tasks h3 {
+    color: #fff; /* Cambia el color del título de tareas en modo oscuro */
+}
+
+body.dark .employee-tasks li {
+    background-color: #444; /* Cambia el fondo de las tarjetas de tareas en modo oscuro */
+    border: 1px solid #555; /* Cambia el color del borde de las tarjetas de tareas en modo oscuro */
+}
+
+body.dark .task-progress {
+    background-color: #00a000; /* Cambia el color de la barra de progreso en modo oscuro */
+}
+
+body.dark .assign-objective-btn,
+body.dark .edit-objective-btn,
+body.dark .delete-objective-btn {
+    background-color: #00a000; /* Cambia el color de fondo de los botones en modo oscuro */
+    color: #fff; /* Cambia el color del texto de los botones en modo oscuro */
+}
+
+body.dark .edit-info-btn {
+    background-color: #00a000; /* Cambia el color de fondo del botón "Editar Información" en modo oscuro */
+    color: #fff; /* Cambia el color del texto del botón "Editar Información" en modo oscuro */
+}
+
+
+/*Seccion de area social*/
+.area-social {
+    text-align: center;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 800px;
+}
+
+.calendar-container {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar-header button {
+    background-color: #0073e6;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+/* Estilos para el calendario */
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+}
+
+.calendar-day {
+    background-color: #f0f0f0;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Cada día con cumpleaños tendrá un fondo sombreado */
+.calendar-day[data-birthday] {
+    background-color: #ffd700; /* Cambia el color de fondo para los días de cumpleaños */
+    border-radius: 50%; /* Para hacer círculos en lugar de cuadrados */
+}
+
+/* Resaltar los días al hacer clic */
+.calendar-day:active {
+    background-color: #0073e6; /* Cambia el color de fondo cuando se hace clic */
+    color: #fff;
+}
+/* Estilos para el elemento "Porcentaje de Descuento para Celebración" */
+.celebration-details {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos para el título "Porcentaje de Descuento para Celebración" */
+  .celebration-details h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para el porcentaje */
+  .percentage-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Estilos para el botón "Modificar" */
+  #modify-discount {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #modify-discount:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Sección de área social en modo oscuro */
+body.dark .area-social {
+    background-color: #333; /* Cambia el fondo en modo oscuro */
+    color: #fff; /* Cambia el color del texto en modo oscuro */
+}
+
+/* Estilos para el contenedor de calendario en modo oscuro */
+body.dark .calendar-container {
+    background-color: #444; /* Cambia el fondo del contenedor en modo oscuro */
+    border: 1px solid #555; /* Cambia el color del borde en modo oscuro */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Cambia la sombra en modo oscuro */
+}
+
+/* Estilos para los botones de encabezado del calendario en modo oscuro */
+body.dark .calendar-header button {
+    background-color: #00a000; /* Cambia el color de fondo en modo oscuro */
+}
+
+/* Estilos para el calendario en modo oscuro */
+body.dark .calendar-day {
+    background-color: #555; /* Cambia el fondo de los días en modo oscuro */
+}
+
+/* Estilos para los días con cumpleaños en modo oscuro */
+body.dark .calendar-day[data-birthday] {
+    background-color: #ffd700; /* Mantén el color de fondo para los días de cumpleaños */
+}
+
+/* Estilos al hacer clic en los días en modo oscuro */
+body.dark .calendar-day:active {
+    background-color: #00a000; /* Cambia el color de fondo cuando se hace clic en modo oscuro */
+    color: #fff;
+}
+
+/* Estilos para el elemento "Porcentaje de Descuento para Celebración" en modo oscuro */
+body.dark .celebration-details {
+    background-color: #333; /* Cambia el fondo en modo oscuro */
+    border: 1px solid #555; /* Cambia el color del borde en modo oscuro */
+    color: #fff; /* Cambia el color del texto en modo oscuro */
+}
+
+/* Estilos para el título "Porcentaje de Descuento para Celebración" en modo oscuro */
+body.dark .celebration-details h3 {
+    color: #fff; /* Cambia el color del título en modo oscuro */
+}
+
+/* Estilos para el porcentaje en modo oscuro */
+body.dark .percentage-card {
+    background-color: #444; /* Cambia el fondo del porcentaje en modo oscuro */
+    border: 1px solid #555; /* Cambia el color del borde en modo oscuro */
+    color: #fff; /* Cambia el color del texto en modo oscuro */
+}
+
+/* Estilos para el botón "Modificar" en modo oscuro */
+body.dark #modify-discount {
+    background-color: #00a000; /* Cambia el color de fondo en modo oscuro */
+}
+

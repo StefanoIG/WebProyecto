@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <title>General</title>
+</head>
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <a href="dashboard.html">
+                  <img src="/img/Logo.png" alt="Logo">
+                </a>
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name">Administracion</span>
+                    <span class="profession">Recursos Humanos</span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="Busqueda global">
+                </li>
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="dashboard.html">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text">Resumen</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="productividad.html">
+                            <i class='bx bx-briefcase icon'></i>
+                            <span class="text nav-text">Rendimiento</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="empleados.html">
+                            <i class='bx bx-upload icon' ></i>
+                            <span class="text nav-text">Empleados</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#" id="open-modal">
+                            <i class='bx bx-bell icon'></i>
+                            <span class="text nav-text">Notificaciones</span>
+                        </a>
+                    </li>
+                
+                    <!-- Ventana modal -->
+                    <div class="hide modal" id="myModal">
+                        <div class="modal-content">
+                            <span class="close" id="close-modal">&times;</span>
+                            <h2>Tienes {notificaciones}</h2>
+                            <p>Contenido notificacion.</p>
+                        </div>
+                    </div>
+                
+                    <li class="nav-link">
+                        <a href="area_social.html">
+                            <i class='bx bx-heart icon' ></i>
+                            <span class="text nav-text">Area Social</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="#" onclick="logoutWithAlert();">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Salir</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Modo oscuro</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </nav>
+
+    
+    <section class="home">
+        <div class="text">Resumen</div>
+        
+    <div class="main">
+
+        <div class="widget" onclick="redirigirAProductividad()">
+            <h2>Gráfico de Productividad</h2>
+            <img src="/img/productividad.jpg" alt="Gráfico de Productividad">
+            <p>Descripción o información adicional sobre la productividad.</p>
+        </div>
+
+        <div class="widget" onclick="redirigirAEmpleadosComoJefe()">
+            <h2>Jefes de Areas</h2>
+            <img src="/img/perfil.png" alt="Gráfico de Productividad">
+            <p>Descripción o información adicional sobre la productividad.</p>
+        </div>
+
+        <div class="widget" onclick="redirigirAEmpleados()">
+            <h2>Administracion empleados</h2>
+            <img src="/img/administrative.png" alt="Gráfico de Productividad">
+            <p>Descripción o información adicional sobre la productividad.</p>
+        </div>
+
+        <div class="widget"onclick="redirigirAAreaSocial()">
+            <h2>Area Social</h2>
+            <img src="/img/social_area.png" alt="Gráfico de Productividad">
+            <p>Descripción o información adicional sobre la productividad.</p>
+        </div>
+ 
+
+        
+    </div>
+    </section>
+
+
+    
+    <script src="js/general.js">  </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    
+
+</body>
+</html>
